@@ -1,3 +1,4 @@
+
 #!/bin/bash -x
 
 echo Welcome
@@ -5,14 +6,20 @@ echo Welcome
 STAKE_PER_DAY=100
 BET_EACH_CHANCE=1
 IS_WIN=1
-cash=100
+#variables
+cash=STAKE_PER_DAY
+MAXIMUM_WIN=$(($STAKE_PER_DAY + $STAKE_PER_DAY/2))
+MAXIMUM_LOOSE=$(($STAKE_PER_DAY/2))
+#checking maximum win ansd loose
 winCheck=$(( RANDOM%2 ))
+while (( $cash != $MAXIMUM_WIN && $cash != $MAXIMUM_LOOSE ))
+do
 if (( $IS_WIN == winCheck ))
 then
-	echo "win"
-	((cash++))
+   ((cash++))
 else
-	echo "loose"
-	((cash--))
+   ((cash--))
 fi
-echo "$cash"
+done
+echo "your limit is over for today: $cash"
+
