@@ -39,7 +39,6 @@ cashCount[$count]=$cash
 done
 echo "total cash of 20 days: $total_cash_After_Month"
 echo ${cashCount[@]}
-echo ${#cashCount[@]}
 
 
 
