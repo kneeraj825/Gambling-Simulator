@@ -34,12 +34,12 @@ do
 	cash=$(($STAKE_PER_DAY-$cash))
 	echo $cash
 #storing the daily winning and loosing cost in dictionary
-cashCount[$count]=$cash
+	cashCount[$count]=$cash
 	total_cash_After_Month=$(($(($total_cash_After_Month))+$(($cash))))
 done
 echo "total cash of 20 days: $total_cash_After_Month"
 echo ${cashCount[@]}
-
+echo ${#cashCount[@]}
 
 
 
