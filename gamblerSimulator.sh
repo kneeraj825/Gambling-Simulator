@@ -11,6 +11,8 @@ secondCash=$STAKE_PER_DAY
 #variables
 SumOfCash=STAKE_PER_DAY
 #storing the  days count
+function gambler() 
+{
 for ((  count=1; count<=days; count++))
 do
 	cash=$STAKE_PER_DAY
@@ -49,4 +51,12 @@ echo "Luckiest Day:"
 	done | sort -rn -k3 | tail -1
 
 echo "total SumOfCash of 20 days: $total_Cash_After_Month"
+if (( $total_Cash_After_Month >=0 ))
+then
+	gambler
+else
+	echo "Game is stopped due to Insufficient cash"
+fi
+}
+gambler
 
